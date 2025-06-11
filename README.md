@@ -1,95 +1,83 @@
 # Import Excel in PHP
 
-This project demonstrates how to import Excel (.xlsx or .xls) files into a MySQL database using PHP. It is built to help developers quickly integrate Excel upload functionality into their web applications. The project uses XAMPP, PHP, and MySQL as its stack.
+This project demonstrates how to import Excel (`.xlsx` or `.xls`) files into a MySQL database using PHP. All the logic is written in a single `index.php` file. It is a simple and effective tool for uploading and inserting spreadsheet data into a MySQL table.
 
 ---
 
 ## 🧰 Prerequisites
 
-Make sure you have the following software installed:
+Make sure the following software is installed:
 
 - [XAMPP](https://www.apachefriends.org/index.html) (includes Apache, PHP, and MySQL)
-- [Git](https://git-scm.com/) (optional, if cloning via Git)
-- PHP version 7.0 or later
-- Composer (optional, if using libraries like PhpSpreadsheet)
+- Web browser (Chrome, Firefox, etc.)
+- [Git](https://git-scm.com/) (optional, for cloning)
 
 ---
 
 ## 🚀 Installation Steps
 
-### 1. Clone the Repository
+### 1. Clone or Download the Repository
 
-If using Git:
+#### Option A: Clone with Git
 
 ```bash
 git clone https://github.com/your-username/import-excel-in-php.git
-Or download the ZIP file from GitHub and extract it.
+Option B: Manual Download
+Download the ZIP from the GitHub repository
+
+Extract the ZIP file
 
 Move the project folder to your XAMPP htdocs directory:
-
-bash
-Copy
-Edit
-C:\xampp\htdocs\
-Your folder path should look like:
 
 cpp
 Copy
 Edit
 C:\xampp\htdocs\import-excel-in-php
-2. Start XAMPP Services
-Open XAMPP Control Panel and start the following:
+2. Start Apache and MySQL via XAMPP
+Open XAMPP Control Panel and start:
 
 Apache
 
 MySQL
 
 3. Import the Database
-Open your browser and go to http://localhost/phpmyadmin
+Open http://localhost/phpmyadmin
 
 Create a new database (e.g., excel_import)
 
-Click on the new database and go to the Import tab
+Click on the database name → go to the Import tab
 
-Select the .sql file included in the project directory (/db/import_excel.sql)
+Select the file:
+import_excel_using_in_php.sql (located in the root of the project folder)
 
-Click Go to import the database structure and sample data
+Click Go to import the tables and structure
 
-4. Configure Database Connection
-Navigate to the file:
+4. Configure the Database Connection
+Open the file:
 
 arduino
 Copy
 Edit
 config/connection.php
-Make sure the following settings are correct:
+Update the following lines if needed:
 
 php
 Copy
 Edit
 $mysql_user     = "root";
 $mysql_password = "";
-Update the database name and host if necessary:
-
-php
-Copy
-Edit
-$mysql_database = "excel_import"; // or your chosen DB name
+$mysql_database = "import_excel_using_in_php"; // Make sure it matches the DB name you created
 $mysql_host     = "localhost";
-💡 How It Works
-Upload an Excel file using the provided HTML form.
+5. Run the Application
+In your browser, go to:
 
-The PHP script reads the Excel file (using PhpSpreadsheet or similar library).
-
-Data is parsed and inserted into a MySQL table.
-
-Note: You may need to install PhpSpreadsheet using Composer if the project depends on it.
-
-bash
+arduino
 Copy
 Edit
-composer require phpoffice/phpspreadsheet
-📂 File Structure
+http://localhost/import-excel-in-php/
+You will see the interface where you can upload and import an Excel file.
+
+📁 File Structure
 pgsql
 Copy
 Edit
@@ -98,39 +86,34 @@ import-excel-in-php/
 ├── config/
 │   └── connection.php
 │
-├── db/
-│   └── import_excel.sql
-│
-├── uploads/
-│   └── (uploaded Excel files)
-│
-├── index.php
-├── upload.php
+├── index.php                # Main application file (upload + import logic)
+├── import_excel_using_in_php.sql   # SQL dump file to create database/tables
 ├── README.md
 ✅ Features
 Upload .xls or .xlsx files
 
-Parses Excel files and imports data into MySQL
+Parse and insert Excel data into MySQL
 
-Simple UI with status messages
+Single-page logic (index.php)
 
-Modular code structure
+Minimal and clean structure
 
 🛠️ Troubleshooting
-If Excel is not being read, ensure php_zip, php_xml, and php_gd2 extensions are enabled in php.ini
+Ensure Apache and MySQL are running
 
-Make sure the uploads/ directory is writable
+Make sure PHP extensions like php_zip, php_xml, and php_gd2 are enabled in php.ini if using PhpSpreadsheet
 
-Check Apache and MySQL logs if any errors occur
+Set the correct permissions on the uploads/ directory (if used)
 
-Use developer tools (F12 in browser) for debugging form submission
+Check PHP errors in the browser or error logs in xampp/php/logs/php_error_log
 
 📄 License
 This project is open-source and available under the MIT License.
 
 🙋‍♂️ Support
-If you have any issues or suggestions, feel free to create an Issue or submit a pull request.
+For issues or suggestions, please create a GitHub Issue.
 
 👨‍💻 Author
 Developed by Aftab Tunio
 CTO – AMIZ Private Limited
+GitHub Profile
